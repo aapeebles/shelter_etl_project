@@ -43,3 +43,4 @@ FROM (
   FROM
     UNNEST(GENERATE_DATE_ARRAY(min_date_var, current_date, INTERVAL 1 DAY)) AS d )
 ORDER BY full_date desc
+END;
