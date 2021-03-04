@@ -1,3 +1,4 @@
+#!/bin/bash
 # this script will run the bulk of my etl
 
 # creates dates table
