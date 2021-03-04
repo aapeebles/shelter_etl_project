@@ -1,0 +1,18 @@
+drop col: breed action: Drop
+drop col: color action: Drop
+drop col: age_upon_outcome action: Drop
+dateformat col: datetime type: slashdate
+dateformat col: monthyear type: amtime
+rename type: manual mapping: [datetime,'outcome_date']
+rename type: manual mapping: [monthyear,'outcome_time']
+dateformat col: date_of_birth type: slashdate
+splitpatterns col: sex_upon_outcome type: on on: `{delim}`
+drop col: sex_upon_outcome2 action: Drop
+drop col: name action: Drop
+drop col: animal_type action: Drop
+rename type: manual mapping: [sex_upon_outcome1,'reproductive_status_outcome']
+derive type: multiple value: ROWNUMBER() group: animal_id order: outcome_date as: 'visit_num'
+merge col: animal_id,visit_num with: '_' as: 'visit_id_outcome'
+move col: visit_num position: after after: visit_id_outcome
+drop col: date_of_birth action: Drop
+set col: reproductive_status_outcome value: IF(reproductive_status_outcome == 'Spayed', 'Neutered', $col)

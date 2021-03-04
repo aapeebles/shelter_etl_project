@@ -1,0 +1,21 @@
+drop col: found_location action: Drop
+Delete age_upon_intake
+Change date format of datetime to M/d/yyyy
+dateformat col: datetime type: slashdate
+dateformat col: datetime2 type: amtime
+rename type: manual mapping: [datetime,'intake_date']
+rename type: manual mapping: [datetime2,'intake_time']
+derive type: single value: intake_condition != 'Normal' as: 'needs_attention'
+splitpatterns col: sex_upon_intake type: on on: `{delim}`
+splitpatterns col: age_upon_intake type: on on: `{delim}`
+case condition: customConditions cases: [LEFT(age_upon_intake2, 3) == 'day',age_upon_intake1],[LEFT(age_upon_intake2, 5) == 'month',age_upon_intake1 * 30],[LEFT(age_upon_intake2, 4) == 'year',age_upon_intake1 * 365] as: 'age_in_days'
+derive type: single value: DATEADD(intake_date, -1 * age_in_days, day) as: 'birth_date'
+drop col: age_in_days,age_upon_intake2,age_upon_intake1 action: Drop
+replacepatterns col: sex_upon_intake1 with: 'Neutered' on: 'Spayed'
+rename type: manual mapping: [sex_upon_intake2,'sex']
+rename type: manual mapping: [sex_upon_intake1,'reproductive_status_intake']
+move col: sex position: before before: reproductive_status_intake
+derive type: multiple value: ROWNUMBER() group: animal_id order: intake_date as: 'visit_num'
+merge col: animal_id,visit_num with: '_' as: 'visit_id'
+Delete rows  where ISMISMATCHED(sex, ['Gender'])
+replacemissing col: sex with: custom text: 'Unknown'

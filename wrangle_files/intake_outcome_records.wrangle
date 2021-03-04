@@ -1,0 +1,8 @@
+filter type: custom rowType: single row: in_shelter == 'false' action: Keep
+replacepatterns col: name with: '' on: '*'
+replacemissing col: name with: custom text: 'unknown'
+merge col: animal_id,name with: ':' as: 'animal_name'
+derive type: single value: DATEDIF(birth_date, outcome_date, day) as: 'animal_age_in_days'
+case condition: customConditions cases: [animal_age_in_days < 31,animal_age_in_days],[AND(animal_age_in_days < 365, animal_age_in_days > 31),ROUND(animal_age_in_days / 30, 0)],[animal_age_in_days > 365,ROUND(animal_age_in_days / 365, 0)] as: 'age_num'
+case condition: customConditions cases: [animal_age_in_days < 31,'days'],[AND(animal_age_in_days < 365, animal_age_in_days > 31),'months'],[animal_age_in_days > 365,'years'] as: 'age_unit'
+drop col: in_shelter action: Drop
