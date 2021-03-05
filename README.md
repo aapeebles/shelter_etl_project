@@ -1,6 +1,8 @@
 # Animal Shelter ETL Project
 ## By Alison Peebles Madigan
-### While between jobs
+#### (While between jobs)
+
+![doggo](https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=640&w=426)
 
 ## Project GOALS:
 - Create an automated ETL pipeline from data api to dashboard
