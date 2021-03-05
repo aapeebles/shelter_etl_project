@@ -7,6 +7,7 @@
 - Create two dashboards
   - The first would be a "landing page" of who is currently in the shelter and their special needs. The target audience would be a shift manager or vet tech.
   - The second would be a "trends page," where someone more senior could see year over year trendsand potential inform more long term planning 
+- Prefer scripting over point and click
 - Learn **A LOT**
 
 ## Why the Austin Animal Shetler data?
