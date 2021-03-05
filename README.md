@@ -36,15 +36,15 @@ While ever in flux, here is what I hope to acheive
    - [X] provision a tiny compute engine
    - [X] create a big query db
    - [X] activate DataPrep (Trifacta)
-   - [ ] activate dashboard software i forget the name of
+   - [ ] activate DataStudio
  - [X] get data from api to google storage 
  - [X] get data from gs to big query 
  - [X] do data clean/transform in DataPrep
  - [X] run DataPrep job
  - [X] automate data transfers from api through bigquery with `cron`, `bash`, and various `gsutil/bq` commands
- - [ ] convert DataPrep wrangles to SQL
+ - [ ] convert DataPrep wrangles to SQL **CURRENT EFFORT**
  - [ ] have data pipeline fully go through scripts
- - [ ] create dashboards
+ - [ ] create dashboards in DataStudio
  - [ ] maybe email the animal shelter? 
 
 Right now I'm on the Wrangles to SQL. Going to learn about temporary tables and ETL, baby!!
