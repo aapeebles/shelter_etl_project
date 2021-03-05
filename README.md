@@ -49,7 +49,7 @@ Will update this as I make progress.
 
 
 ### Directory Structure
-.
+```
 ├── ETL_DAG.PNG
 ├── README.md
 ├── fetch_data.sh
@@ -63,4 +63,5 @@ Will update this as I make progress.
     ├── first_clean_outcomes.wrangle
     ├── intake_outcome_records.wrangle
     └── joined_intake_outcomes.wrangle
+```
     
