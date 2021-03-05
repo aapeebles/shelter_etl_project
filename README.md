@@ -7,7 +7,7 @@
 - Create two dashboards
   - The first would be a "landing page" of who is currently in the shelter and their special needs. The target audience would be a shift manager or vet tech.
   - The second would be a "trends page," where someone more senior could see year over year trendsand potential inform more long term planning 
-  - Learn **A LOT**
+- Learn **A LOT**
 
 ## Why the Austin Animal Shetler data?
 I have three rescue dogs. Look at those stupid cute faces. 
@@ -28,5 +28,21 @@ They are the only shelter in US (that I know of) that shares their intake and ou
 
 ## Project plan
 While ever in flux, here is what I hope to acheive
- -[] create basic google cloud infrastructure
-  - [ ]
+ - [ ] create basic google cloud infrastructure
+   - [X] create a storage bucket
+   - [X] provision a tiny compute engine
+   - [X] create a big query db
+   - [X] activate DataPrep (Trifacta)
+   - [ ] activate dashboard software i forget the name of
+ - [X] get data from api to google storage 
+ - [X] get data from gs to big query 
+ - [X] do data clean/transform in DataPrep
+ - [X] run DataPrep job
+ - [X] automate data transfers from api through bigquery with `cron`, `bash`, and various `gsutil/bq` commands
+ - [ ] convert DataPrep wrangles to SQL
+ - [ ] have data pipeline fully go through scripts
+ - [ ] create dashboards
+ - [ ] maybe email the animal shelter? 
+
+Right now I'm on the Wrangles to SQL. Going to learn about temporary tables and ETL, baby!!
+Will update this as I make progress.
