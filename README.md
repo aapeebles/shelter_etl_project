@@ -46,3 +46,21 @@ While ever in flux, here is what I hope to acheive
 
 Right now I'm on the Wrangles to SQL. Going to learn about temporary tables and ETL, baby!!
 Will update this as I make progress.
+
+
+### Directory Structure
+.
+├── ETL_DAG.PNG
+├── README.md
+├── fetch_data.sh
+├── load_data.sh
+├── run_queries.sh
+├── sql_scripts
+│   └── dates_table.sql
+└── wrangle_files
+    ├── animals_in_shelter.wrangle
+    ├── first_clean_intakes.wrangle
+    ├── first_clean_outcomes.wrangle
+    ├── intake_outcome_records.wrangle
+    └── joined_intake_outcomes.wrangle
+    
