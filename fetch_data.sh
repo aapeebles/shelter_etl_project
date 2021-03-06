@@ -24,9 +24,9 @@ cat *g238* > raw_outcomes.csv
 rm *g238*
 echo "Outcome file created"
 read -r FIRSTLINE < raw_outcomes.csv
+sort -u raw_outcomes.csv>  raw_coutcomes2.csv
 sed -i '/datetime/d' raw_outcomes.csv
 sed -i "1s/^/$FIRSTLINE\n/" raw_coutcomes.csv
-sort -u raw_outcomes.csv>  raw_coutcomes2.csv
 wc -l raw_outcomes2.csv
 gsutil cp raw_outcomes2.csv gs://shelter-etl-data-folder/raw_outcomes.csv
 
