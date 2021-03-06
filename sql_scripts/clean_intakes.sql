@@ -6,7 +6,7 @@ SELECT
   REPLACE(name,chr(42),'') as name,
   DATE(datetime) AS intake_date,
   animal_type,
-  FORMAT_TIME('%r',TIME(datetime2)) AS intake_time,
+  FORMAT_TIME('%R',TIME(datetime2)) AS intake_time,
   intake_type,
   intake_condition,
   IF(LOWER(TRIM(intake_condition))!='normal', 1,0) as needs_attention,
