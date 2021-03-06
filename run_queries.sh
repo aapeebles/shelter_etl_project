@@ -10,3 +10,10 @@ bq query <./sql_scripts/clean_intakes.sql \
         --destination_table austin_animal_shelter.cleaned_intakes_s1 \
         --use_legacy_sql=false \
         --replace=true
+
+# creates cleaned_outcomes_s1
+bq query <./sql_scripts/clean_outcomes.sql \
+        -n=0 \
+        --destination_table austin_animal_shelter.cleaned_outcomes_s1 \
+        --use_legacy_sql=false \
+        --replace=true
