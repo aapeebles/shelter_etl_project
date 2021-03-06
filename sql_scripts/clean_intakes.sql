@@ -31,4 +31,4 @@ INNER JOIN (SELECT animal_id,
                   ROW_NUMBER() OVER ( PARTITION BY animal_id ORDER BY DATE(datetime) desc  ) AS rownum
                   FROM `austin-animal-shelter-etl.austin_animal_shelter.raw_intakes`) AS visits
                   ON (intake_data.animal_id=visits.animal_id) AND (intake_data.intake_date=visits.intake_date)
-ORDER BY visit_id desc, intake_date desc;
+ORDER BY intake_date desc;
