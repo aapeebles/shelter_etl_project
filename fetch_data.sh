@@ -14,8 +14,9 @@ echo "Intake file created"
 read -r FIRSTLINE < raw_intakes.csv
 sed -i '/datetime/d' raw_intakes.csv
 sed -i "1s/^/$FIRSTLINE\n/" raw_intakes.csv
-sort -u -o raw_intakes.csv raw_intakes.csv  
-gsutil cp raw_intakes.csv gs://shelter-etl-data-folder/raw_intakes.csv
+sort -u raw_intakes.csv>raw_intakes2.csv
+wc -l raw_intakes2.csv
+gsutil cp raw_intakes2.csv gs://shelter-etl-data-folder/raw_intakes.csv
 
 # get all of the outcomes info and create raw_outcomes.csv
 curl "https://data.austintexas.gov/resource/9t4d-g238.csv?\$offset=[0-$outcome_rec:1000]" -O -s
@@ -25,8 +26,9 @@ echo "Outcome file created"
 read -r FIRSTLINE < raw_outcomes.csv
 sed -i '/datetime/d' raw_outcomes.csv
 sed -i "1s/^/$FIRSTLINE\n/" raw_coutcomes.csv
-sort -u -o raw_outcomes.csv raw_coutcomes.csv  
-gsutil cp raw_outcomes.csv gs://shelter-etl-data-folder/raw_outcomes.csv
+sort -u raw_outcomes.csv>  raw_coutcomes2.csv
+wc -l raw_outcomes2.csv
+gsutil cp raw_outcomes2.csv gs://shelter-etl-data-folder/raw_outcomes.csv
 
 
 
