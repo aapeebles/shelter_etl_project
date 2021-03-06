@@ -12,9 +12,9 @@ cat *wter* > raw_intakes.csv
 rm *wter*
 echo "Intake file created"
 read -r FIRSTLINE < raw_intakes.csv
-sed -i '/datetime/d' raw_intakes.csv
-sed -i "1s/^/$FIRSTLINE\n/" raw_intakes.csv
 sort -u raw_intakes.csv>raw_intakes2.csv
+sed -i '/datetime/d' raw_intakes2.csv
+sed -i "1s/^/$FIRSTLINE\n/" raw_intakes2.csv
 wc -l raw_intakes2.csv
 gsutil cp raw_intakes2.csv gs://shelter-etl-data-folder/raw_intakes.csv
 
