@@ -16,7 +16,7 @@ SELECT
 FROM outcome_data 
 INNER JOIN (SELECT animal_id,
                   DATE(datetime) AS outcome_date,
-                  ROW_NUMBER() OVER ( PARTITION BY animal_id ORDER BY DATE(datetime) desc  ) AS rownum
+                  ROW_NUMBER() OVER ( PARTITION BY animal_id ORDER BY DATE(datetime)) AS rownum
                   FROM `austin-animal-shelter-etl.austin_animal_shelter.raw_outcomes`) AS visits
                   ON (outcome_data.animal_id=visits.animal_id) AND (outcome_data.outcome_date=visits.outcome_date)
 ORDER BY outcome_date desc ;
