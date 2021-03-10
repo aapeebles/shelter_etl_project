@@ -17,3 +17,10 @@ bq query <./sql_scripts/clean_outcomes.sql \
         --destination_table austin_animal_shelter.cleaned_outcomes_s1 \
         --use_legacy_sql=false \
         --replace=true
+
+# creates joined_intakes_outcomes_s2
+bq query <./sql_scripts/join_clean_tables.sql \
+        -n=0 \
+        --destination_table austin_animal_shelter.joined_intakes_outcomes_s2 \
+        --use_legacy_sql=false \
+        --replace=true
