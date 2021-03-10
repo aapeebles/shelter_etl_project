@@ -12,7 +12,7 @@
 - Prefer scripting over point and click
 - Learn **A LOT**
 
-## Why the Austin Animal Shetler data?
+## Why the Austin Animal Center data?
 I have three rescue dogs. Look at those stupid cute faces. 
 [insert future picture here, imagine two bulldogs and a senior mutt in the meantime]
 
@@ -42,10 +42,16 @@ While ever in flux, here is what I hope to acheive
  - [X] do data clean/transform in DataPrep
  - [X] run DataPrep job
  - [X] automate data transfers from api through bigquery with `cron`, `bash`, and various `gsutil/bq` commands
- - [ ] convert DataPrep wrangles to SQL **CURRENT EFFORT**
+ - [X] convert DataPrep wrangles to SQL **DONE!**
+    - [X] chat with SQL SME to learn some best practices regarding staging, table naming, different flows, etc
+ - [ ] contact animal center with questions about business logic **New!**
+   - [ ] animals that only have outcomes and no intake, safe to remove?
+   - [ ] what about the animals with intakes, but no outcomes, that are *years* old?
+   - [ ] what is the capacity of the shelter? does animals being in foster count as not having an outcome? 
+ - [ ] Update Flow 1 with updated business logic
+ - [ ] Figure out SQL for summary tables in Flow 2 
  - [ ] have data pipeline fully go through scripts
  - [ ] create dashboards in DataStudio
- - [ ] maybe email the animal shelter? 
 
 Right now I'm on the Wrangles to SQL. Going to learn about temporary tables and ETL, baby!!
 Will update this as I make progress.
@@ -53,14 +59,20 @@ Will update this as I make progress.
 
 ### Directory Structure
 ```
+.
 ├── ETL_DAG.PNG
 ├── README.md
-├── fetch_data.sh
-├── load_data.sh
-├── run_queries.sh
-├── sql_scripts
-│   └── dates_table.sql
-└── wrangle_files
+├── fetch_data.sh                             # bash script that uses curl, sed, etc to get data from animal center api
+├── load_data.sh                              # bash script that loads the raw api data into bigquery
+├── run_queries.sh                            # this will be renamed "Flow_1" - it populates bigquery from the sql files
+├── sql_scripts                               # the code does the ETL. I am keeping each table's sql in separate files
+│   ├── animal_visit_history.sql
+│   ├── clean_intakes.sql
+│   ├── clean_outcomes.sql
+│   ├── dates_table.sql
+│   ├── in_shelter_now.sql
+│   └── join_clean_tables.sql
+└── wrangle_files                             # files downloaded from google dataprep recording transformations
     ├── animals_in_shelter.wrangle
     ├── first_clean_intakes.wrangle
     ├── first_clean_outcomes.wrangle
