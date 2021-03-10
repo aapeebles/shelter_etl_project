@@ -5,7 +5,10 @@ WITH
     B.outcome_time,
     B.outcome_type,
     B.outcome_subtype,
-    B.reproductive_status_outcome
+    B.reproductive_status_outcome,
+    B.visit_id as visit_id_o,
+    B.animal_id as animal_id_0,
+    B.name as name_o
   FROM
     `austin-animal-shelter-etl.austin_animal_shelter.cleaned_intakes_s1` A
   FULL OUTER JOIN 
