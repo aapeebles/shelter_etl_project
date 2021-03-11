@@ -15,3 +15,6 @@ bq load --source_format=CSV \
 	austin_animal_shelter.raw_outcomes \
 	gs://shelter-etl-data-folder/raw_outcomes.csv 
 
+# creates dates table
+bq query <./sql_scripts/dates_table.sql --use_legacy_sql=false
+
