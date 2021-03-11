@@ -9,7 +9,7 @@ SET min_date_var = (
     `austin-animal-shelter-etl.austin_animal_shelter.raw_intakes`);
 
 -- Make date table
-CREATE OR REPLACE TABLE `austin-animal-shelter-etl.austin_animal_shelter.dates_table` AS
+CREATE OR REPLACE TABLE `austin-animal-shelter-etl.austin_animal_shelter.dates_table_s1` AS
 SELECT
   FORMAT_DATE('%F', d) AS id,
   d AS full_date,
