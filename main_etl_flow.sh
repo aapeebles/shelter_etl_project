@@ -29,3 +29,11 @@ bq query <./sql_scripts/animal_visit_history.sql \
         --use_legacy_sql=false \
         --replace=true
 
+# creates animal_history_records_s3
+bq query <./sql_scripts/in_shelter_now.sql \
+        -n=0 \
+        --destination_table austin_animal_shelter.animals_without_outcomes_s3 \
+        --use_legacy_sql=false \
+        --replace=true
+
+
