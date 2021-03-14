@@ -1,0 +1,1 @@
+These files are artifacts of the initial data prep process that are now no longer used.
