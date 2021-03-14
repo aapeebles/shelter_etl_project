@@ -1,8 +1,11 @@
 #standardSQL
+
 DECLARE
   intake_sum STRING;
 DECLARE
   animal_type_sum STRING;
+-- dynamicaly creates query that interates over intake type values so I do not have to type in each column name.
+-- I'm not sure if creating permanent tables in the right way to go.
 SET
   intake_sum = (
   SELECT
@@ -14,6 +17,7 @@ SET
       `austin-animal-shelter-etl.austin_animal_shelter.intakes_outcomes_s3`
     GROUP BY
       intake_type ));
+-- dynamicaly creates query that interates over animal type values so I do not have to type in each column name.
 SET
   animal_type_sum = (
   SELECT
@@ -25,10 +29,12 @@ SET
       `austin-animal-shelter-etl.austin_animal_shelter.intakes_outcomes_s3`
     GROUP BY
       animal_type ));
+-- using execute to run those queries. 
 EXECUTE IMMEDIATE
   animal_type_sum;
 EXECUTE IMMEDIATE
   intake_sum;
+-- now I do a massive join to get all of those tables together
 SELECT
   a.*,
   b.intake_abandoned,
