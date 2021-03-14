@@ -1,4 +1,4 @@
---This query populates table cleaned_intakes_s1
+/*This query populates table cleaned_intakes_s1*/
 with intake_data as
 (
 SELECT 
