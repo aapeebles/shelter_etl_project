@@ -12,7 +12,7 @@ bq query -n=0 \
 bq query -n=0 \
         --destination_table austin_animal_shelter.cleaned_outcomes_s1 \
         --use_legacy_sql=false \
-        --replace=true /
+        --replace=true \
         "$(cat ~/bin/sql_scripts/clean_outcomes.sql)"
 
 # creates joined_intakes_outcomes_s2
