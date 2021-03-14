@@ -1,11 +1,9 @@
-#standardSQL
-
 DECLARE
   intake_sum STRING;
 DECLARE
   animal_type_sum STRING;
--- dynamicaly creates query that interates over intake type values so I do not have to type in each column name.
--- I'm not sure if creating permanent tables in the right way to go.
+/* dynamicaly creates query that interates over intake type values so I do not have to type in each column name.
+-- I'm not sure if creating permanent tables in the right way to go. */
 SET
   intake_sum = (
   SELECT

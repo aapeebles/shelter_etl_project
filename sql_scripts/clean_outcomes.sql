@@ -1,4 +1,4 @@
--- This query populates table cleaned_outcomes_s1
+/*This query populates table cleaned_outcomes_s1*/
 with  outcome_data as
 (
 SELECT 
