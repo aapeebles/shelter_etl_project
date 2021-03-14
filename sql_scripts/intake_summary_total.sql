@@ -42,7 +42,15 @@ SELECT
   b.intake_stray,
   b.intake_wildlife,
   c.needs_attention,
-  d.total_intake
+  d.total_intake,
+  e.year,
+  e.month,
+  e.month_name,
+  e.fiscal_year,
+  e.fiscal_qtr,
+  e.week_day,
+  e.day_name,
+  e.day_is_weekday
 FROM
   `austin-animal-shelter-etl.austin_animal_shelter.temp_animal_intake_summary` a
 INNER JOIN
@@ -73,5 +81,7 @@ INNER JOIN (
     intake_date DESC ) d
 ON
   a.intake_date = d.intake_date
+INNER JOIN  `austin-animal-shelter-etl.austin_animal_shelter.dates_table_s1` e
+ON a.intake_date = e.full_date
 ORDER BY
   a.intake_date DESC;
