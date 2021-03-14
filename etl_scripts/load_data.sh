@@ -16,5 +16,5 @@ bq load --source_format=CSV \
 	gs://shelter-etl-data-folder/raw_outcomes.csv 
 
 # creates dates table
-bq query <./sql_scripts/dates_table.sql --use_legacy_sql=false
+bq query <~/bin/sql_scripts/dates_table.sql --use_legacy_sql=false --replace=true 
 
