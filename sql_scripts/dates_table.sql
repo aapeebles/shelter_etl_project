@@ -1,5 +1,4 @@
 -- This code creates the dates table using the min date from intakes
-
 -- First, create and define min_date_var
 DECLARE min_date_var DATE;
 SET min_date_var = (
