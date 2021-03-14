@@ -1,0 +1,7 @@
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO="aapeebles@gmail.com"
+
+0 2 * * * ~/bin/etl_scripts/fetch_data.sh
+15 2 * * * ~/bin/etl_scripts/load_data.sh
+30 2 * * * ~/bin/etl_scripts/main_etl_flow.sh
